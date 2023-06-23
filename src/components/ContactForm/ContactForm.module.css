@@ -1,0 +1,43 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ADD8E6;
+    padding: 30px;
+    border-radius: 4px;
+    width: 300px;
+    height: auto;
+    margin-top: 10px;
+};
+.label {
+    display: flex;
+    flex-direction: column;
+   padding-bottom: 15px;
+}
+.input {
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 15px;
+
+}
+.title  {
+   margin-bottom: 10px;
+
+}
+.btnContact {
+    margin-top: 20px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.btnContact:hover {
+    background-color: #77a0b8
+}
+
+;

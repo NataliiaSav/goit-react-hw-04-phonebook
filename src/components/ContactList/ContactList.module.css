@@ -1,0 +1,33 @@
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ADD8E6;
+    padding: 20px;
+    border-radius: 4px;
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.contactItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+.btnDelete {
+    margin-left: 15px;
+    border: none;
+    border-radius: 4px;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.btnDelete:hover {
+    background-color: #77a0b8;
+ 
+}
