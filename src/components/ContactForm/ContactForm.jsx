@@ -1,34 +1,39 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import css from "./ContactForm.module.css"
 
-export class ContactForm extends Component {
-    state = {
-        name: '',
-        number: ''
-    };
+export const  ContactForm  = ({onSubmit}) =>{
+    const [name, setName] = useState('');
+    const [number, setNumber] = useState('');
 
-    handleChange = event => {
+   const handleChange = event => {
         const { name, value } = event.currentTarget
-        this.setState({[name]: value});
+       switch (name) {
+           case 'name':
+               setName(value);
+               break;
+           case 'number':
+               setNumber(value);
+               break;
+           default:
+               break;
+        }
     };
 
-    handleSubmit = event => {
+    const handleSubmit = event => {
         event.preventDefault();
-        this.props.onSubmit(this.state);
-        this.reset();
+        onSubmit(name, number);
+        setName('');
+        setNumber('');
     };
-    reset = () => {
-        this.setState({name: '', number: ''})
-    }
-    render() {
+    
         return (
-            <form className={css.form} onSubmit = {this.handleSubmit}>
+            <form className={css.form} onSubmit = {handleSubmit}>
                 <label className = {css.label}>
                     <p className={css.title}>Name</p>
                     <input className={css.input}
-                        value={this.state.name}
-                        onChange={this.handleChange}
+                        value={name}
+                        onChange={handleChange}
                         type="text"
                         name="name"
                         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -40,8 +45,8 @@ export class ContactForm extends Component {
                     <p className={css.title}>Number</p>
                     <input
                         className={css.input}
-                        value={this.state.number}
-                        onChange={this.handleChange}
+                        value={number}
+                        onChange={handleChange}
                         type="tel"
                         name="number"
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -53,7 +58,7 @@ export class ContactForm extends Component {
             </form>
         );
     }                         
-}
+
 
 ContactForm.propTypes = {
     onSubmit: PropTypes.func.isRequired
